@@ -92,9 +92,29 @@ static void searchBooks(String keyword) {
 }
 
 
-    static void removeBook(String title) {
-        // TODO (Student B)
+    
+static void removeBook(String title) {
+    String target = title.trim();
+
+    if (target.isEmpty()) {
+        System.out.println("Please enter a book title.");
+        return;
     }
+
+    List<String[]> books = loadBooks();
+
+    for (int i = 0; i < books.size(); i++) {
+        if (books.get(i)[0].equalsIgnoreCase(target)) {
+            String removedTitle = books.get(i)[0];
+            books.remove(i);
+            saveBooks(books);
+            System.out.println("Removed: " + removedTitle);
+            return;
+        }
+    }
+
+    System.out.println("Book not found.");
+}
 
     public static void main(String[] args) {
         printBanner();
