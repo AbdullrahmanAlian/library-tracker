@@ -66,13 +66,55 @@ public class Main {
 
     // ---------- Student B: search and remove ----------
 
-    static void searchBooks(String keyword) {
-        // TODO (Student B)
+    
+static void searchBooks(String keyword) {
+    String query = keyword.trim().toLowerCase();
+
+    if (query.isEmpty()) {
+        System.out.println("Please enter a search keyword.");
+        return;
     }
 
-    static void removeBook(String title) {
-        // TODO (Student B)
+    List<String[]> books = loadBooks();
+    boolean found = false;
+
+    for (String[] book : books) {
+        if (book[0].toLowerCase().contains(query)
+                || book[1].toLowerCase().contains(query)) {
+            System.out.println(book[0] + " by " + book[1]);
+            found = true;
+        }
     }
+
+    if (!found) {
+       System.out.println("there is not a book with this name");
+    }
+}
+
+
+    
+static void removeBook(String title) {
+    String target = title.trim();
+
+    if (target.isEmpty()) {
+        System.out.println("Please enter a book title.");
+        return;
+    }
+
+    List<String[]> books = loadBooks();
+
+    for (int i = 0; i < books.size(); i++) {
+        if (books.get(i)[0].equalsIgnoreCase(target)) {
+            String removedTitle = books.get(i)[0];
+            books.remove(i);
+            saveBooks(books);
+            System.out.println("Removed: " + removedTitle);
+            return;
+        }
+    }
+
+System.out.println("Book not found.");
+}
 
     public static void main(String[] args) {
         printBanner();
