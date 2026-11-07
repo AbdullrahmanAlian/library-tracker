@@ -66,9 +66,31 @@ public class Main {
 
     // ---------- Student B: search and remove ----------
 
-    static void searchBooks(String keyword) {
-        // TODO (Student B)
+    
+static void searchBooks(String keyword) {
+    String query = keyword.trim().toLowerCase();
+
+    if (query.isEmpty()) {
+        System.out.println("Please enter a search keyword.");
+        return;
     }
+
+    List<String[]> books = loadBooks();
+    boolean found = false;
+
+    for (String[] book : books) {
+        if (book[0].toLowerCase().contains(query)
+                || book[1].toLowerCase().contains(query)) {
+            System.out.println(book[0] + " by " + book[1]);
+            found = true;
+        }
+    }
+
+    if (!found) {
+        System.out.println("No matching books found.");
+    }
+}
+
 
     static void removeBook(String title) {
         // TODO (Student B)
