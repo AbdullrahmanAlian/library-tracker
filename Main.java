@@ -64,7 +64,10 @@ public class Main {
     }
 
     static void listBooks() {
-        // TODO (Student A)
+        List<String[]> books = loadBooks();
+        for (int i = 0; i < books.size(); i++) {
+            System.out.println((i + 1) + ". " + books.get(i)[0] + " by " + books.get(i)[1]);
+        }
     }
 
     // ---------- Student B: search and remove ----------
