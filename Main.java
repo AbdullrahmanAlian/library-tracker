@@ -57,7 +57,10 @@ public class Main {
     // ---------- Student A: add and list ----------
 
     static void addBook(String title, String author) {
-        // TODO (Student A)
+        List<String[]> books = loadBooks();
+        books.add(new String[]{title, author});
+        saveBooks(books);
+        System.out.println("Book added.");
     }
 
     static void listBooks() {
