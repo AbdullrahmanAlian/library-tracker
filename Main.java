@@ -56,12 +56,26 @@ public class Main {
 
     // ---------- Student A: add and list ----------
 
-    static void addBook(String title, String author) {
-        // TODO (Student A)
+static void addBook(String title, String author) {
+    if (title.trim().isEmpty() || author.trim().isEmpty()) {
+        System.out.println("Title and author cannot be empty.");
+        return;
     }
+    List<String[]> books = loadBooks();
+    books.add(new String[]{title.trim(), author.trim()});
+    saveBooks(books);
+    System.out.println("Book added.");
+}
 
     static void listBooks() {
-        // TODO (Student A)
+        List<String[]> books = loadBooks();
+        if (books.isEmpty()) {
+            System.out.println("The library is empty.");
+            return;
+        }
+        for (int i = 0; i < books.size(); i++) {
+            System.out.println((i + 1) + ". " + books.get(i)[0] + " by " + books.get(i)[1]);
+        }
     }
 
     // ---------- Student B: search and remove ----------
