@@ -87,7 +87,7 @@ static void searchBooks(String keyword) {
     }
 
     if (!found) {
-        System.out.println("there is not a book with this name");
+       System.out.println("there is not a book with this name");
     }
 }
 
@@ -113,7 +113,7 @@ static void removeBook(String title) {
         }
     }
 
-System.out.println("there is not a book with this name");
+System.out.println("Book not found.");
 }
 
     public static void main(String[] args) {
