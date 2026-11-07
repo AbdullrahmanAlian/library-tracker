@@ -65,6 +65,10 @@ public class Main {
 
     static void listBooks() {
         List<String[]> books = loadBooks();
+        if (books.isEmpty()) {
+            System.out.println("The library is empty.");
+            return;
+        }
         for (int i = 0; i < books.size(); i++) {
             System.out.println((i + 1) + ". " + books.get(i)[0] + " by " + books.get(i)[1]);
         }
