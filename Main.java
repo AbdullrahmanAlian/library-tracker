@@ -135,11 +135,10 @@ static void countBooks() {
     }
     
     public static void main(String[] args) {
-      
         printBanner();
         Scanner sc = new Scanner(System.in);
         while (true) {
-            System.out.println("\n1) Add  2) List  3) Search  4) Remove  5) Quit");
+            System.out.println("\n1) Add  2) List  3) Search  4) Remove  5) Quit  6) Count");
             System.out.print("Choose: ");
             String choice = sc.nextLine().trim();
             if (choice.equals("1")) {
@@ -158,6 +157,8 @@ static void countBooks() {
                 removeBook(sc.nextLine());
             } else if (choice.equals("5")) {
                 break;
+            } else if (choice.equals("6")) {
+                countBooks();
             }
         }
         sc.close();
