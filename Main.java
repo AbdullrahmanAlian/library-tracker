@@ -13,7 +13,7 @@ public class Main {
     static final String DATA_FILE = "books.json";
 
     static void printBanner() {
-        System.out.println("=== Library Tracker ===");
+        System.out.println("* My Library Tracker *");
     }
 
     // Reads books.json and returns a list of {title, author}
