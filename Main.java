@@ -130,7 +130,12 @@ static void removeBook(String title) {
 System.out.println("Book not found.");
 }
 
+static void countBooks() {
+        System.out.println("Total books: " + loadBooks().size());
+    }
+    
     public static void main(String[] args) {
+      
         printBanner();
         Scanner sc = new Scanner(System.in);
         while (true) {
